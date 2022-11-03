@@ -1,9 +1,10 @@
 #include <string>
 // Modules
 #include "modules/dwm_clock.h"
+#include "modules/dwm_battery.h"
 
-std::string updateBar()
-{
-    return (std::string) 
-        "[ " + getCurrentDateTime("%X") + " ]";
-}
+static const std::string BATTERY = "BAT1";
+static std::string batIcons[] = {"", "", "", "", "", "", "", "", "", "", ""};
+
+//"[ " + getCurrentBatteryPercentage(BATTERY, batIcons) + " ] " +
+//  static
