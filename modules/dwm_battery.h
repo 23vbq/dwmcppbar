@@ -2,7 +2,10 @@
 #include <fstream>
 #include <string>
 
-std::string getCurrentBatteryPercentage(std::string batteryName, std::string *batIcons)
+static std::string batteryName = "BAT1";
+static std::string batIcons[] = {"", "", "", "", "", "", "", "", "", "", ""};
+
+std::string getCurrentBatteryPercentage()
 {
     std::string _return;
 

@@ -3,8 +3,10 @@
 #include <chrono>
 #include <string>
 
-// Config file
-#include "config.h"
+// Modules
+#include "modules/dwm_clock.h"
+#include "modules/dwm_battery.h"
+#include "modules/dwm_alsa.h"
 
 using namespace std;
 
@@ -13,17 +15,18 @@ string updateBar();
 
 int main()
 {
-    // setlocale(LC_ALL, "unicode");
-    while (!TERMINATEDWMBAR)
-    {
-        printf("%s\n", &updateBar()[0]);
-        this_thread::sleep_for(chrono::seconds(1));
-    }
-    return 0;
+	// setlocale(LC_ALL, "unicode");
+	while (!TERMINATEDWMBAR)
+	{
+		printf("%s\n", &updateBar()[0]);
+		this_thread::sleep_for(chrono::seconds(1));
+	}
+	return 0;
 }
 
 string updateBar()
 {
-    return (string) "[" + getCurrentBatteryPercentage(BATTERY, batIcons) + "] " +
-           "[ " + getCurrentDateTime("%X") + " ]";
+	return (string) "[" + getCurrentVolume() + "] " +
+		   "[" + getCurrentBatteryPercentage() + "] " +
+		   "[ " + getCurrentDateTime("%X") + " ]";
 }
