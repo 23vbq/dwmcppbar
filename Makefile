@@ -5,7 +5,7 @@
 
 CC = g++
 
-SRCS := main.cpp
+SRCS := main.cpp execute_command.cpp
 OUT := dwmcppbar
 
 all: build
